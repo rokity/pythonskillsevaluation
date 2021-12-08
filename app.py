@@ -5,13 +5,13 @@ import os
 SIZE=(800,450)
 
 
-
 def read_images_resize_save_output_dir(path, size,output_dir):
     images = []
     for filename in os.listdir(path):
         if filename.endswith(".jpg") or filename.endswith(".png") or filename.endswith(".jpeg"):
             image = cv2.imread(os.path.join(path, filename))
-            image = cv2.resize(image, size)
+            if image.shape[0] > size[0] and image.shape[1] > size[1]:
+                image = cv2.resize(image, size)
             cv2.imwrite(os.path.join(output_dir, filename), image)
     return images
     
