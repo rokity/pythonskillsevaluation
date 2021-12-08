@@ -7,6 +7,7 @@ import numpy as np
 
 
 SIZE=(800,450)
+OUTPUT_JSON_FILENAME='output.json'
 
 #Read Images from input directory and resize to 800x450 and save to output directory
 # @param image_dir: input directory
@@ -98,7 +99,7 @@ def main():
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     read_images_resize_save_output_dir(image_dir, output_dir)
-    parse_xml_data(xml_dir,output_dir,'annotations.json')
+    parse_xml_data(xml_dir,output_dir,OUTPUT_JSON_FILENAME)
 
 
 if __name__ == '__main__':
